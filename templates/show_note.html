@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="h_title text-center text-muted mb-0 pt-3">Note: {{ note.title }}</h1>
+            <h3 class="text-muted mb-3 h-log text-center h_acc" style="font-weight: lighter;">Category: {{ note.category.category }}</h3>
+            <p class="text-muted mt-3">{{ note.text }}</p>
+            <div class="card-body text-center">
+                <a href="{% url 'edit_note' id=note.id %}" class="text-muted mybtn">Edit</a>
+                <a href="{% url 'delete_note' id=note.id %}" class="text-muted mybtn">Delete</a>
+            </div>
+        </div>
+        {% if note.image %}
+        <div class="col-md-6">
+            <img src="{{ note.image.url }}" class="img-fluid rounded-circle" height="400" width="400" alt="Note image">
+        </div>
+        {% endif %}
+
+
+    </div>
+</div>
+{% endblock %}

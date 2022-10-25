@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container bg-image"  id="bg" style="background-image:url('{% static '/img/home_img.jpg' %}' );">
+    <div class="container row">
+        <div class="txt">
+            <h2 class="text-muted mb-0 h_title text-center"> Why Taking Notes Makes You More Productive?</h2>
+            <ul class="text-muted mb-0 h_txt">
+                <li>
+                    Note taking forces you to pay attention and helps you focus.
+                </li>
+                <li>
+                    Notetaking keeps your body active and involved and helps you avoid feelings of drowsiness or distraction.
+                </li>
+                <li>
+                    Relieves stress.
+                </li>
+                <li>
+                    You can share your notes with co-workers and friends.
+                </li>
+                <li>
+                    You organise your ideas and make connections.
+                </li>
+            </ul>
+            <h6 class="text-muted mb-0 h-log text-center h_acc" style="font-weight: lighter;">Create account now and start your notes!</h6>
+        </div>
+    </div>
+</div>
+{% endblock %}

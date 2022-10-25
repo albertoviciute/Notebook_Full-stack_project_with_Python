@@ -1,0 +1,56 @@
+#bg{
+  background-repeat: no-repeat;
+  background-size:1800px 1000px;
+  background-position: top;
+  background-attachment: fixed;
+
+}
+
+.txt{
+  width: 70%;
+  margin: 3rem auto 3rem;
+}
+
+.h_title{
+  font-weight: lighter;
+  text-align: center;
+  padding: 0 0 1rem;
+  font-size: 2.5rem;
+}
+
+.h_txt{
+  font-size: 1.3rem;
+}
+
+.h-log{
+  font-size: 2rem;
+}
+
+.nav-link:hover{
+  color: black;
+  font-size: 17px;
+}
+
+.mybtn{
+    text-decoration: none;
+    margin: 0 0.4rem;
+}
+
+.myfrom{
+    padding-bottom: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .h_title{
+    font-size: 1.8rem;
+  }
+  .h_txt{
+    font-size: 1.2rem;
+  }
+  .txt{
+    width: 90%;
+  }
+  .h_acc{
+    font-size: 1.4rem;
+  }
+}

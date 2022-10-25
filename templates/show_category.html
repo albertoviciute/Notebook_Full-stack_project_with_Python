@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <h2 class="h_title text-center text-muted">Category: {{ category.category }}</h2>
+        {% if category.cate.all %}
+        {% for c in category.cate.all %}
+        <div class="col-md-3 d-flex align-items-center justify-content-center">
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted text-center">{{ c.title }}</h6>
+                    <div class="card-body">
+                        <a href="{% url 'show_note' id=c.id %}" class="text-muted mybtn">View</a>
+                        <a href="{% url 'edit_note' id=c.id %}" class="text-muted mybtn">Edit</a>
+                        <a href="{% url 'delete_note' id=c.id %}" class="text-muted mybtn">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h1 class="lead main_home_header">Ups we can not find any notes!</h1>
+        <a class="nav-link text-muted" href="{% url 'create_note' %}">Create notes</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

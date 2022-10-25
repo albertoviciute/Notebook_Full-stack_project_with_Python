@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+<div class="row justify-content-center">
+  {% if notes %}
+    <h1 class="h_title text-center text-muted">Here you can see all {{ user.username }} notes!</h1>
+    <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
+      <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Note title" name="query">
+    </form>
+    {% for n in notes %}
+    <div class="col-md-3 d-flex align-items-center justify-content-center">
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted text-center">{{ n.title }}</h6>
+                <div class="card-body">
+                    <a href="{% url 'show_note' id=n.id %}" class="text-muted mybtn">View</a>
+                    <a href="{% url 'edit_note' id=n.id %}" class="text-muted mybtn">Edit</a>
+                    <a href="{% url 'delete_note' id=n.id %}" class="text-muted mybtn">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <h1 class="lead main_home_header">You do not have any notes!</h1>
+  {% endif %}
+
+</div>
+</div>
+{% endblock %}

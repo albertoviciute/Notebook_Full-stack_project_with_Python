@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+<div class="row justify-content-center">
+  {% if categories %}
+    <h1 class="h_title text-center text-muted">Here you can see all {{ user.username }} categories!</h1>
+    {% for c in categories %}
+    <div class="col-md-3 d-flex align-items-center justify-content-center">
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted text-center">{{ c.category }}</h6>
+                <div class="card-body">
+                    <a href="{% url 'show_category' id=c.id %}" class="text-muted mybtn">View</a>
+                    <a href="{% url 'edit_category' id=c.id %}" class="text-muted mybtn">Edit</a>
+                    <a href="{% url 'delete_category' id=c.id %}" class="text-muted mybtn">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <h1 class="lead main_home_header">You do not have any categories!</h1>
+  {% endif %}
+
+</div>
+</div>
+{% endblock %}

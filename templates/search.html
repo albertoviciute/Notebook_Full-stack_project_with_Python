@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% if notes %}
+<div class="row">
+    <h1 class="lead main_home_header">Search results!</h1>
+    {% for n in notes %}
+    <div class="col-md-3 d-flex align-items-center">
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">{{ n.title }}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{ n.category.category }}</h6>
+                <div class="card-body">
+                    <a href="{% url 'show_note' id=n.id %}" class="btn text-muted">View</a>
+                    <a href="{% url 'edit_note' id=n.id %}" class="btn text-muted">Edit</a>
+                    <a href="{% url 'delete_note' id=n.id %}" class="btn text-muted">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <h1 class="lead main_home_header">You can not find any notes!</h1>
+  {% endif %}
+
+{% endblock %}
